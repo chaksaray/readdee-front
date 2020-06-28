@@ -1,0 +1,133 @@
+$min-size: 20px;
+
+.custom-control {
+    min-height: $min-size;
+    position: relative;
+
+    &-input {
+        min-width: $min-size;
+        min-height: $min-size;
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    &-label {
+        padding-left: $min-size + 5;
+        vertical-align: baseline;
+        user-select: none;
+        cursor: pointer;
+        &:empty { padding-left: $min-size; }
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0 !important;
+            left: 0 !important;
+            min-width: $min-size !important;
+            min-height: $min-size !important;
+        }
+
+        &::before {
+            pointer-events: none;
+            border: 2px solid;
+            border-color: #ffffff;
+            animation: animate_input_Checked 0.15s ease-in-out;
+            transition: background-color .15s ease-in-out,
+                        border-color .15s ease-in-out,
+                        box-shadow .15s ease-in-out;
+        }
+
+        @each $key, $value in $theme-colors {
+            &-#{$key} {
+                &::before { border-color: $value !important; }
+                &::after { background-color: transparent !important; }
+            }
+        }
+    }
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #ffffff;
+}
+
+.custom-control-input:checked ~ .custom-control-label::after {
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-position: center;
+    background-size: 60%;
+    background-color: map-get($map: $theme-colors, $key: 'primary');
+    animation: animate_input_Checked 0.15s ease-in-out;
+}
+
+/* Checkbox */
+.custom-radio {
+
+    .custom-control-label::before,
+    .custom-control-label::after {
+        border-radius: 50%;
+    }
+   
+    .custom-control-input:checked ~ .custom-control-label::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    }
+
+    @each $key, $value in $theme-colors {
+    
+        $fillColor: str-slice(#{$value}, 2);
+        &-#{$key} {
+            .custom-control-input:checked ~ .custom-control-label::before {
+                border-color: $value !important;
+            }
+            .custom-control-input:checked ~ .custom-control-label::after {
+                background-color: #{$value} !important;
+            }
+        }
+        &-border-#{$key} {
+            .custom-control-input:checked ~ .custom-control-label::before {
+                border-color: $value !important;
+            }
+            .custom-control-input:checked ~ .custom-control-label::after {
+                background-color: transparent !important;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23#{$fillColor}'/%3e%3c/svg%3e");
+            }
+        }
+    }
+}
+
+/* Radio */
+.custom-checkbox {
+   
+    .custom-control-input:checked ~ .custom-control-label::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
+
+    @each $key, $value in $theme-colors {
+    
+        $fillColor: str-slice(#{$value}, 2);
+        &-#{$key} {
+            .custom-control-input:checked ~ .custom-control-label::before {
+                border-color: $value !important;
+            }
+            .custom-control-input:checked ~ .custom-control-label::after {
+                background-color: #{$value} !important;
+            }
+        }
+        &-border-#{$key} {
+            .custom-control-input:checked ~ .custom-control-label::before {
+                border-color: $value !important;
+            }
+            .custom-control-input:checked ~ .custom-control-label::after {
+                background-color: transparent !important;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23#{$fillColor}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+            }
+        }
+    }
+}
+
+@keyframes animate_input_Checked {
+    from    { transform: scale(0.4); opacity: 0; }
+    to      { transform: scale(1); opacity: 1; }
+}

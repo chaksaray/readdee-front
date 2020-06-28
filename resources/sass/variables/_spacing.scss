@@ -1,0 +1,16 @@
+// Spacing
+$mSpacer: 5px !default;
+$mSpacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($mSpacer * 1),
+    2: ($mSpacer * 2),
+    3: ($mSpacer * 4),
+    4: ($mSpacer * 6),
+    5: ($mSpacer * 10),
+    6: ($mSpacer * 12),
+    7: ($mSpacer * 14),
+    8: ($mSpacer * 22)
+  ), $mSpacers
+);
