@@ -15,7 +15,7 @@
 <body itemscope>
     <div class="overlay1">
         <div id="errors">
-            @yield('content')    
+            @yield('content')
         </div>
     </div>
 

@@ -47,7 +47,7 @@
                         <p class="d-flex justify-content-between mb-0 pb-0">
                             <small>9ម៉ោង កន្លងផុត . អាន 6នាទី</small>
                         </p>
-                        
+
                         <img class="card-img-top mt-2 mb-2" src="https://miro.medium.com/fit/c/1400/420/0*TVJT-Pt2Fyy_8O7h"
                         alt="Card image cap">
                         <p class="text-muted">ក្នុងនាមជាប៉ូលិសក្រុង Baltimore
@@ -59,7 +59,7 @@
                         <span class="float-right text-muted">
                             <span class=" ">អានបន្ដ...</span> | <i class="far fa-bookmark ml-2 text-muted"></i>
                         </span>
-                        
+
                     </div>
                 </div>
                 <div class="card border-1 mb-3">

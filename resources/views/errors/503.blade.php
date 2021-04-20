@@ -1,16 +1,15 @@
 @extends('errors.layouts.error')
 
 @section('meta-tag')
-@include('partials._NO_INDEX')
 @endsection
 
 @section('content')
 	<center>
 		<div class="errors-503">
 			<h2>COMING SOON</h2>
-		
+
 			<p class="info">Our website is under construction, follow us for update now!</p>
-			
+
 			<div class="duration">
 				<ul>
 					<li>
@@ -34,7 +33,7 @@
 					</li>
 				</ul>
 			</div>
-			
+
 		</div>
 	</center>
 

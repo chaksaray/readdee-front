@@ -1,7 +1,6 @@
 @extends('errors.layouts.error')
 
 @section('meta-tag')
-{{-- @include('partials._NO_INDEX') --}}
 @endsection
 
 @section('content')
@@ -13,10 +12,10 @@
 				<h1><span>4</span><span>0</span><span>4</span></h1>
 			</div>
 			<h2>we are sorry, but the page you requested was not found</h2>
-			
-			<form class="notfound-search" method="GET" action="/search" 
-					accept-charset="UTF-8" 
-					> 
+
+			<form class="notfound-search" method="GET" action="/search"
+					accept-charset="UTF-8"
+					>
 				<div class="form-group">
 					<input type="text" placeholder="Search..." name="q">
 					<button type="submit">Search</button>
